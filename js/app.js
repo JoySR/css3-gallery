@@ -70,8 +70,8 @@ Barrels.prototype = {
     createRow: function(rowHeight) {
         var _this = this;
         $.each(this.rowList, function(idx, imgInfo) {
-            var $polaroidCt = $('<div class="polaroid"></div>'),
-                $imgCt = $('<div class="item"></div>'),
+            var $imgCt = $('<div class="item"></div>'),
+                $polaroidCt = $('<div class="polaroid"></div>'),
                 $link = $('<a href="'+ imgInfo.url  +'"></a>'),
                 $img = imgInfo.target;
             $img.height(rowHeight);
@@ -84,17 +84,17 @@ Barrels.prototype = {
 
     },
     fetchItem : function() {
-        var me = this;
+        var _this = this;
         if(!this.isLoadingItem) {
             this.isLoadingItem = true;
             var apiKey = "2651964-fc07f3b29cadd5417e5fa1d02";
             var URL = "https://pixabay.com/api/?key="+ apiKey+"&page="+this.imgPage+"&per_page="+this.imgCount+"&image_type=photo";
             $.getJSON(URL, function(response){
                 if (parseInt(response.totalHits) > 0) {
-                    me.isLoadingItem = false;
-                    me.loadImg(response['hits']);
-                    me.imgPage++;
-                    me.isLoadingItem = false;
+                    _this.isLoadingItem = false;
+                    _this.loadImg(response['hits']);
+                    _this.imgPage++;
+                    _this.isLoadingItem = false;
                 }
                 else {
                     alert("已经没有更多照片了 :(");
@@ -126,6 +126,7 @@ Barrels.prototype = {
 var barrel = new Barrels($(".gallery"));
 
 var clock;
+// 给予一定的时间间隔,避免每一次滚动都要进行加载,消耗性能
 $(window).scroll(function() {
     if (clock) {
         clearTimeout(clock);
