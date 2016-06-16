@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Indie Flower', cursive;
+    line-height: 1.618em;
+    background: repeating-radial-gradient(circle,
+        #e4d4bb, #e7dac6 50%, #e7dac6 100%
+    ) #e4d4bb;
+    background-size: 10px 10px;
+}
+
+h1 {
+    text-align: center;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.gallery {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+}
+.polaroid {
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.2);
+}
+
+.item {
+    display: inline-block;
+    margin-top: 2rem;
+    filter: grayscale(100%);
+    transition: all .35s;
+}
+.item .polaroid:before {
+    content: '';
+    position: absolute;
+    height: 20%;
+    width: 47%;
+    bottom: 30px;
+    z-index: -1;
+    transition: all 0.35s;
+}
+.item:nth-of-type(4n+1) {
+    transform: scale(0.8, 0.8) rotate(5deg);
+
+}
+.item:nth-of-type(4n+1) .polaroid:before {
+    transform: rotate(6deg); /* 比本体倾斜度稍稍大一点为阴影效果做准备 */
+    right: 12px; /* 向右倾斜 */
+    box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4); /* 制造倾斜后角落的阴影效果 */
+}
+.item:nth-of-type(4n+2) {
+    transform: scale(0.8, 0.8) rotate(-5deg);
+
+}
+.item:nth-of-type(4n+2) .polaroid:before {
+    transform: rotate(-6deg);
+    left: 12px;
+    box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
+}
+.item:nth-of-type(4n+3) {
+    transform: scale(0.8, 0.8) rotate(-3deg);
+
+}
+.item:nth-of-type(4n+3) .polaroid:before {
+    transform: rotate(-4deg);
+    left: 12px;
+    box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3); /* 倾斜角度不同, 阴影也要做相应调节 */
+}
+.item:nth-of-type(4n+4) {
+    transform: scale(0.8, 0.8) rotate(3deg);
+
+}
+.item:nth-of-type(4n+4) .polaroid:before {
+    transform: rotate(4deg);
+    right: 12px;
+    box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
+}
+.item:hover {
+    filter: none;
+    transform: scale(1, 1) rotate(0deg) !important;
+    transition: all 0.35s;
+}
+.item:hover .polaroid:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    transform: rotate(0deg);
+    height: 90%;
+    width: 90%;
+    bottom: 0;
+    right: 5%;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.2); /* 取消旋转后, 阴影效果要做相应变化以体现真实性 */
+    transition: all 0.35s;
+}
+
+#loading {
+    margin: 40px auto;
+    width: 120px;
+    height: 120px;
+    background-color: transparent;
+    border-radius: 100%;
+    border: 15px solid #e4d4bb;
+    border-top-color: white;
+    animation: rotation 1s infinite linear;
+    box-sizing: border-box;
+}
+@keyframes rotation{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#footer {
+    text-align: center;
+}
