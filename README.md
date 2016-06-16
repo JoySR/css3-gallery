@@ -4,6 +4,6 @@
 
 [预览地址](http://www.joysr.com/css3-gallery/)
 
-图片来源：[Pixabay](http://joysr.com/koshien/senbatsu88/index.html)
+图片来源：[Pixabay](https://pixabay.com/)
 
 
