@@ -32,6 +32,7 @@ img {
     display: inline-block;
     margin-top: 2rem;
     filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
     transition: all .35s;
 }
 .item .polaroid:before {
@@ -81,6 +82,7 @@ img {
 }
 .item:hover {
     filter: none;
+    -webkit-filter: none;
     transform: scale(1, 1) rotate(0deg) !important;
     transition: all 0.35s;
 }
